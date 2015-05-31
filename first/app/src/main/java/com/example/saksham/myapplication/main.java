@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 
 /**
@@ -112,7 +114,15 @@ public class main extends Activity {
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
-        findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+
+        Button toPress = (Button) findViewById(R.id.topress);
+        toPress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView text = (TextView) findViewById(R.id.fullscreen_content);
+                text.setText("PLS WORK OKAY");
+            }
+        });
     }
 
     @Override
